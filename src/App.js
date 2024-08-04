@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TitlePage from './components/TitlePage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Game from './components/Game';
+import TitlePage from './components/TitlePage';
+import './App.css';
 
 const App = () => {
     return (
