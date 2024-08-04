@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Card from './Card';
 
+// Utility function to shuffle an array
+const shuffleArray = (array) => {
+    let shuffled = array.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+};
+
 const Game = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -16,7 +26,7 @@ const Game = () => {
     useEffect(() => {
         const cardNumbers = Array.from({ length: 13 }, (_, i) => i + 1);
         const shuffled = cardNumbers.sort(() => 0.5 - Math.random()).slice(0, 10);
-        setCards(shuffled);
+        setCards(shuffleArray(shuffled));
         setNextPrompt(shuffled, 0);
     }, []);
 
@@ -31,7 +41,7 @@ const Game = () => {
 
     const setNextPrompt = (cards, index) => {
         if (index < cards.length) {
-            fetch(`/prompts/${language}_${cards[index]}.txt`)
+            fetch(`${process.env.PUBLIC_URL}/prompts/${language}_${cards[index]}.txt`)
                 .then((response) => response.text())
                 .then((text) => {
                     setCurrentPrompt(text);
@@ -62,15 +72,15 @@ const Game = () => {
     };
 
     return (
-        <div>
+        <div className="game-container">
             <h2>Score: {score}</h2>
             <h3>Time Left: {timeLeft}</h3>
             <p>{currentPrompt}</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {cards.map((card) => (
+            <div className="cards">
+                {shuffleArray(cards).map((card) => (
                     <Card
                         key={card}
-                        image={`/assets/${card}.png`}
+                        image={`${process.env.PUBLIC_URL}/assets/${card}.png`}
                         onClick={() => handleCardClick(card)}
                         isDisabled={correctCards.has(card)}
                         isCorrect={selectedCard === card && card === cards[score]}
