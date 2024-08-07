@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+select, button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+    .card.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .card.correct {
+        border-color: gray;
+    }
+
+    .card img {
+        max-width: 100px;
+        max-height: 100px;
+    }
