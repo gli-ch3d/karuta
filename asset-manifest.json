@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/karuta-game/static/css/main.4fbfc425.css",
-    "main.js": "/karuta-game/static/js/main.9a2bb031.js",
+    "main.js": "/karuta-game/static/js/main.1a097593.js",
     "index.html": "/karuta-game/index.html",
     "main.4fbfc425.css.map": "/karuta-game/static/css/main.4fbfc425.css.map",
-    "main.9a2bb031.js.map": "/karuta-game/static/js/main.9a2bb031.js.map"
+    "main.1a097593.js.map": "/karuta-game/static/js/main.1a097593.js.map"
   },
   "entrypoints": [
     "static/css/main.4fbfc425.css",
-    "static/js/main.9a2bb031.js"
+    "static/js/main.1a097593.js"
   ]
 }
