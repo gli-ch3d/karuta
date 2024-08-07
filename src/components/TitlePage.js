@@ -10,7 +10,7 @@ const TitlePage = () => {
     };
 
     return (
-        <div>
+        <div className="game-container">
             <h1>Karuta Game</h1>
             <p>Select Language:</p>
             <select onChange={(e) => setLanguage(e.target.value)} value={language}>

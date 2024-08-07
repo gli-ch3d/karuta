@@ -1,11 +1,13 @@
 import React from 'react';
 
 const Card = ({ image, onClick, isDisabled, isCorrect }) => {
-    const cardClass = `card ${isDisabled ? 'disabled' : ''} ${isCorrect ? 'correct' : ''}`;
+    let className = 'card';
+    if (isDisabled) className += ' disabled';
+    if (isCorrect) className += ' correct';
 
     return (
-        <div className={cardClass} onClick={onClick}>
-            <img src={image} alt="card" />
+        <div className={className} onClick={isDisabled ? null : onClick}>
+            <img src={image} alt="Card" />
         </div>
     );
 };
